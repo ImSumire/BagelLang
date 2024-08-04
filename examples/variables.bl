@@ -1,0 +1,8 @@
+// Explicitly typed
+int x = 42;
+bool open = true;
+string h = "Hello world!";
+Option<string> content = Some("");
+
+// Implicitly typed
+auto y = 3.14;

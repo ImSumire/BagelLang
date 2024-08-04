@@ -1,0 +1,2 @@
+option<int> find_value(int key);
+result<int, error> divide(int numerator, int denominator);

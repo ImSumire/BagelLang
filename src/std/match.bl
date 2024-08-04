@@ -1,0 +1,23 @@
+class pattern_match<Input, Param, Output> (
+    (Input, (Param -> Ouput))[] cases;
+    (Param -> Ouput) default_action;
+) {
+    Hashtbl.t<Input, Param -> Output> matcher.create(List.length(cases));
+
+    unit init() {
+        List.iter(
+            fun (Input pattern, (Param -> Ouput) action) ->
+                Hashtbl.add(matcher, pattern, action),
+            cases
+        )
+    }
+
+    Ouput invoke(Param param, Input input) {
+        try {
+            local auto action = Hashtbl.find(matcher, input);
+            return action(param);
+        } with Not_found {
+            return default_action(param);
+        }
+    }
+}

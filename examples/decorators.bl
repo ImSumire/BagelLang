@@ -1,0 +1,19 @@
+(int -> int) timeit((int -> int) f) {
+  (x) {
+    local auto start_time = Unix.gettimeofday();
+    local int result = f(x);
+    local auto end_time = Unix.gettimeofday();
+    Printf.printf("Execution time: %f seconds\n", end_time -. start_time);
+    return result;
+  }
+}
+
+@timeit
+int fact(int x) {
+  @recursive
+  local int aux(int n) {
+    if (n <= 1) return 1;
+    else n * aux(n - 1)
+  }
+  return aux(x);
+}

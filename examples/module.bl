@@ -1,0 +1,12 @@
+module Arithmetic {
+  struct complexe {
+    float real, imag
+  }
+
+  complex add(complex c1, complex c2) {
+    return {
+      c1.real +. c2.real,
+      c1.imag +. c2.imag
+    };
+  }
+}

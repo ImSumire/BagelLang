@@ -1,0 +1,3 @@
+int* x = &0;  // Declaration
+x.get();  // Getter
+x.set(1);  // Setter

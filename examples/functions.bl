@@ -1,0 +1,8 @@
+float benchmark <Arg, Output>((Arg -> Output) f, Arg arg, int iterations) {
+  local auto start_time = gettimeofday();
+  for (1 .. iterations) {
+    f(arg);
+  }
+  local auto end_time = gettimeofday();
+  return end_time -. start_time;
+}
