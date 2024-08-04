@@ -6,8 +6,9 @@ class pattern_match<Input, Param, Output> (
 
     unit init() {
         List.iter(
-            fun (Input pattern, (Param -> Ouput) action) ->
-                Hashtbl.add(matcher, pattern, action),
+            (Input pattern, (Param -> Ouput) action) {
+                Hashtbl.add(matcher, pattern, action);
+            },
             cases
         )
     }
